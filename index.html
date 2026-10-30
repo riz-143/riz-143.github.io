@@ -3,7 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>My Personal Portfolio</title>
+
+<title>RIZ | Official Portfolio</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 * {
@@ -12,110 +15,408 @@
   box-sizing: border-box;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  font-family: Arial, sans-serif;
-  background: #0b1120;
+  background: #080808;
+  color: #fff;
+  font-family: 'Montserrat', sans-serif;
+}
+
+:root {
+  --gold: #d6b46a;
+  --dark: #080808;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 22px 8%;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.logo {
+  font-family: 'Cinzel', serif;
+  font-size: 30px;
+  font-weight: 800;
+  color: var(--gold);
+  letter-spacing: 5px;
+}
+
+nav a {
   color: white;
-  text-align: center;
-  padding: 40px 20px;
+  text-decoration: none;
+  font-size: 11px;
+  letter-spacing: 2px;
+  margin-left: 20px;
 }
 
-.container {
-  max-width: 750px;
-  margin: auto;
-}
-
-.avatar {
-  width: 110px;
-  height: 110px;
-  border-radius: 50%;
-  background: #2563eb;
+.hero {
+  min-height: 100vh;
   display: flex;
   align-items: center;
-  justify-content: center;
-  font-size: 45px;
-  font-weight: bold;
-  margin: 20px auto;
+  padding: 130px 9% 70px;
+  background:
+  linear-gradient(90deg, #080808 10%, rgba(8,8,8,.75) 55%, rgba(8,8,8,.2)),
+  url('https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=1600') center/cover;
 }
 
-h1 {
-  font-size: 36px;
-  margin: 20px 0;
+.hero-content {
+  max-width: 650px;
+  animation: appear 1.5s ease;
 }
 
-h1 span {
-  color: #60a5fa;
+.tag {
+  color: var(--gold);
+  letter-spacing: 5px;
+  font-size: 11px;
 }
 
-p {
-  color: #cbd5e1;
-  line-height: 1.7;
-  margin: 15px 0;
+.hero h1 {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(48px, 10vw, 90px);
+  line-height: 1.1;
+  margin: 25px 0;
+}
+
+.hero h1 span {
+  color: var(--gold);
+}
+
+.hero p {
+  color: #c5c5c5;
+  line-height: 1.9;
+  font-size: 14px;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 30px;
+  padding: 15px 28px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  text-decoration: none;
+  letter-spacing: 2px;
+  font-size: 11px;
+  transition: .3s;
+}
+
+.btn:hover {
+  background: var(--gold);
+  color: #080808;
 }
 
 section {
-  background: #172033;
-  padding: 25px;
-  margin: 25px 0;
-  border-radius: 15px;
+  padding: 100px 8%;
 }
 
-h2 {
-  color: #60a5fa;
-  margin-bottom: 15px;
+.section-title {
+  text-align: center;
+  margin-bottom: 55px;
 }
 
-.skills {
-  color: #cbd5e1;
+.section-title small {
+  color: var(--gold);
+  letter-spacing: 5px;
+  font-size: 10px;
+}
+
+.section-title h2 {
+  font-family: 'Cinzel', serif;
+  font-size: 35px;
+  margin-top: 15px;
+}
+
+.about {
+  background: #101010;
+  text-align: center;
+}
+
+.about p {
+  max-width: 700px;
+  margin: auto;
+  color: #aaa;
   line-height: 2;
+  font-size: 14px;
 }
 
-a {
-  color: #60a5fa;
+.gallery {
+  background: #080808;
+}
+
+.photos {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.photo {
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
+.photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: .7s;
+}
+
+.photo:hover img {
+  transform: scale(1.1);
+}
+
+.photo span {
+  position: absolute;
+  bottom: 18px;
+  left: 18px;
+  color: white;
+  letter-spacing: 3px;
+  font-size: 11px;
+  text-shadow: 0 2px 8px #000;
+}
+
+.social {
+  background: #101010;
+  text-align: center;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.social-links a {
+  border: 1px solid #66542f;
+  color: var(--gold);
+  padding: 15px 20px;
   text-decoration: none;
+  font-size: 12px;
+  transition: .3s;
+}
+
+.social-links a:hover {
+  background: var(--gold);
+  color: black;
+}
+
+.contact {
+  text-align: center;
+  background:
+  linear-gradient(rgba(0,0,0,.8), rgba(0,0,0,.9)),
+  url('https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=1200') center/cover;
+}
+
+.contact p {
+  color: #aaa;
+  margin: 20px 0;
 }
 
 footer {
-  color: #64748b;
-  margin-top: 30px;
+  padding: 30px 15px;
+  text-align: center;
+  color: #777;
+  background: #050505;
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+
+.gold {
+  color: var(--gold);
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(35px);
+  transition: 1s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(35px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 600px) {
+  nav {
+    padding: 20px 5%;
+  }
+
+  nav a {
+    margin-left: 9px;
+    font-size: 9px;
+  }
+
+  .logo {
+    font-size: 23px;
+  }
+
+  .hero {
+    min-height: 90vh;
+    padding: 120px 7% 60px;
+    background-position: 60% center;
+  }
+
+  .hero h1 {
+    font-size: 48px;
+  }
+
+  section {
+    padding: 75px 7%;
+  }
+
+  .photos {
+    grid-template-columns: 1fr;
+  }
+
+  .photo {
+    height: 330px;
+  }
 }
 </style>
 </head>
 
 <body>
-<div class="container">
 
-<div class="avatar">R</div>
+<nav>
+  <div class="logo">RIZ.</div>
+  <div>
+    <a href="#about">ABOUT</a>
+    <a href="#gallery">GALLERY</a>
+    <a href="#contact">CONTACT</a>
+  </div>
+</nav>
 
-<h1>Hello, I'm <span>Your Name</span></h1>
+<header class="hero">
+  <div class="hero-content">
+    <div class="tag">THE OFFICIAL PORTFOLIO</div>
 
-<p>Welcome to my personal portfolio website.</p>
+    <h1>
+      THE ART<br>
+      OF BEING<br>
+      <span>DIFFERENT.</span>
+    </h1>
 
-<section>
-<h2>About Me</h2>
-<p>
-I am passionate about learning new things,
-building my skills and creating something unique.
-This is my personal portfolio.
-</p>
+    <p>
+      Not just a name. A personality.
+      Not just a dream. A vision.
+      Creating my own legacy, one moment at a time.
+    </p>
+
+    <a href="#gallery" class="btn">EXPLORE MY WORLD →</a>
+  </div>
+</header>
+
+<section class="about reveal" id="about">
+  <div class="section-title">
+    <small>THE PERSON BEHIND THE NAME</small>
+    <h2>ABOUT <span class="gold">ME</span></h2>
+  </div>
+
+  <p>
+    Welcome to my world.
+    I believe in ambition, confidence,
+    creativity and the power of individuality.
+    My journey is about expressing myself,
+    chasing dreams and creating a legacy
+    that speaks louder than words.
+  </p>
 </section>
 
-<section>
-<h2>My Skills</h2>
-<div class="skills">
-HTML • CSS • Creativity • Communication
-</div>
+<section class="gallery reveal" id="gallery">
+  <div class="section-title">
+    <small>MY WORLD IN FRAMES</small>
+    <h2>THE <span class="gold">GALLERY</span></h2>
+  </div>
+
+  <div class="photos">
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=900" alt="Portrait">
+      <span>THE PORTRAIT</span>
+    </div>
+
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=900" alt="Fashion">
+      <span>THE STYLE</span>
+    </div>
+
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1529139574466-a303027c1d8b?w=900" alt="Fashion editorial">
+      <span>THE MOMENT</span>
+    </div>
+
+    <div class="photo">
+      <img src="https://images.unsplash.com/photo-1519608487953-e999c86e7455?w=900" alt="Night">
+      <span>THE JOURNEY</span>
+    </div>
+  </div>
 </section>
 
-<section>
-<h2>Contact Me</h2>
-<p>Email: your-email@example.com</p>
+<section class="social reveal">
+  <div class="section-title">
+    <small>FOLLOW THE JOURNEY</small>
+    <h2>LET'S <span class="gold">CONNECT</span></h2>
+  </div>
+
+  <div class="social-links">
+    <a href="https://instagram.com/" target="_blank">INSTAGRAM</a>
+    <a href="https://facebook.com/" target="_blank">FACEBOOK</a>
+    <a href="https://youtube.com/" target="_blank">YOUTUBE</a>
+    <a href="https://tiktok.com/" target="_blank">TIKTOK</a>
+  </div>
+</section>
+
+<section class="contact reveal" id="contact">
+  <div class="section-title">
+    <small>FOR BUSINESS & COLLABORATIONS</small>
+    <h2>GET IN <span class="gold">TOUCH</span></h2>
+  </div>
+
+  <p>Every great connection starts with a hello.</p>
+
+  <a class="btn" href="mailto:your-email@example.com">
+    CONTACT ME →
+  </a>
 </section>
 
 <footer>
-© 2026 My Personal Portfolio. All Rights Reserved.
+  © 2026 RIZ. ALL RIGHTS RESERVED.
+  <br><br>
+  DESIGNED WITH AMBITION.
 </footer>
 
-</div>
+<script>
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('show');
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal').forEach(item => {
+  observer.observe(item);
+});
+</script>
+
 </body>
 </html>
